@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shakuntalites — Forever In Our Hearts</title>
+<meta name="description" content="A cinematic farewell tribute to the Class of 2025–26 at Shakuntalites, Banasthali Vidhyapeeth."/>
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<!-- Only load font weights/styles actually used -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,500&family=Noto+Sans+Devanagari:wght@400;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ===== PAGE TRANSITION ===== -->
+<div id="pageTransition"></div>
+
+<!-- ===== SCROLL BAR ===== -->
+<div id="scrollBar"></div>
+
+<!-- ===== MAGNETIC CURSOR (desktop only) ===== -->
+<div id="magnetCursor"></div>
+<div id="magnetTrail"></div>
+
+<!-- ===== NAV ===== -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo magnetic">Shakuntalites</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#years" onclick="closeMobileMenu()">Gallery</a>
+  <a href="#memories" onclick="closeMobileMenu()">Memories</a>
+  <a href="#videos" onclick="closeMobileMenu()">Videos</a>
+  <a href="#wishes" onclick="closeMobileMenu()">Wishes</a>
+  <a href="#teachers" onclick="closeMobileMenu()">Teachers</a>
+  <a href="about.html" onclick="closeMobileMenu()">About</a>
+  <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+  <div class="mobile-menu-batch">Shakuntalites · 2025–26</div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="bokeh-container" id="bokehContainer"></div>
+  <div class="grain-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Class of 2025–26 · Banasthali Vidhyapeeth</div>
+    <h1 class="hero-title">
+      <span class="text-clip-reveal"><span>Shakuntalites</span></span>
+    </h1>
+    <p class="hero-subtitle"><em>शाकुन्तलम् विद्यालय</em></p>
+    <p class="hero-tagline">Forever In Our Hearts</p>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===== STATS STRIP ===== -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-count="280">0</div>
+      <div class="stat-label">Students</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="20">0</div>
+      <div class="stat-label">Teachers</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="7">0</div>
+      <div class="stat-label">Years Together</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="1000">0</div>
+      <div class="stat-label">Memories</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== YEAR / GALLERY SECTION ===== -->
+<section class="years-section cinematic-reveal" id="years">
+  <div class="section-eyebrow">Our Albums</div>
+  <h2 class="section-title">Every Year, <em>Every Memory</em></h2>
+  <p class="section-desc">Tap any album to relive the magic — seven years of Shakuntalites, one story at a time.</p>
+
+  <div class="year-switcher-wrap">
+    <div class="year-switcher-label">Browse by year</div>
+    <div class="year-tabs-inner" id="yearTabsInner"></div>
+    <div class="year-switch-hint">Switch years to see different galleries</div>
+  </div>
+
+  <!-- Gallery grid populated by gallery.js -->
+  <div class="photo-grid stagger-children" id="photoGrid"></div>
+</section>
+
+<!-- ===== MEMORIES STRIP ===== -->
+<section class="memory-section cinematic-reveal" id="memories">
+  <div class="memory-header">
+    <div>
+      <div class="section-eyebrow">Memory Wall</div>
+      <h2 class="section-title">Polaroids & <em>Moments</em></h2>
+      <p class="section-desc">Snapshots from a story that will never be forgotten.</p>
+    </div>
+  </div>
+  <div class="polaroid-row" id="polaroidRow"></div>
+</section>
+
+<!-- ===== QUOTE TICKER ===== -->
+<div class="quote-strip" aria-hidden="true">
+  <div class="quote-track" id="quoteTicker">
+    <span>Forever Shakuntalites</span><span class="dot">✦</span>
+    <span>शाकुन्तलम् विद्यालय</span><span class="dot">✦</span>
+    <span>Class of 2025–26</span><span class="dot">✦</span>
+    <span>Forever In Our Hearts</span><span class="dot">✦</span>
+    <span>Banasthali Vidhyapeeth</span><span class="dot">✦</span>
+    <span>विद्या ददाति विनयम्</span><span class="dot">✦</span>
+    <span>Forever Shakuntalites</span><span class="dot">✦</span>
+    <span>शाकुन्तलम् विद्यालय</span><span class="dot">✦</span>
+    <span>Class of 2025–26</span><span class="dot">✦</span>
+    <span>Forever In Our Hearts</span><span class="dot">✦</span>
+    <span>Banasthali Vidhyapeeth</span><span class="dot">✦</span>
+    <span>विद्या ददाति विनयम्</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ===== SCHOOL PHOTO SECTION ===== -->
+<section class="school-quote-section">
+  <div class="school-img-wrap" id="schoolImgWrap">
+    <div class="school-img-frame">
+      <div class="school-img-ph">
+        🏫
+        <span class="school-img-label">Shakuntalam Vidyalaya</span>
+      </div>
+      <div class="school-img-overlay"></div>
+      <div class="school-img-quotes">
+        <p class="sq-line sq-1">"Where stories were written, not just studied"</p>
+        <p class="sq-line sq-2">Shakuntalites · Class 12 · 2025–26</p>
+      </div>
+      <div class="school-img-shine"></div>
+    </div>
+    <div class="sq-badge" id="sqBadge">✦ शाकुन्तलम् विद्यालय ✦</div>
+  </div>
+</section>
+
+<!-- ===== VIDEOS SECTION ===== -->
+<section class="video-section cinematic-reveal" id="videos">
+  <div class="section-eyebrow">Cinematic Memories</div>
+  <h2 class="section-title">Watch Our <em>Story</em></h2>
+  <p class="section-desc">Relive the moments that made us who we are — one frame at a time.</p>
+  <!-- Populated by gallery.js -->
+  <div class="video-grid stagger-children" id="videoGrid"></div>
+</section>
+
+<!-- ===== TEACHERS SECTION ===== -->
+<section class="teachers-section cinematic-reveal" id="teachers">
+  <div class="section-eyebrow">Our Mentors</div>
+  <h2 class="section-title">The Ones Who <em>Shaped Us</em></h2>
+  <p class="section-desc">Every lesson, every correction, every quiet push — thank you.</p>
+  <!-- Populated by gallery.js -->
+  <div class="teachers-grid stagger-children" id="teachersGrid"></div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="timeline-section cinematic-reveal" id="timelineSection">
+  <div class="section-eyebrow reveal">Our Journey</div>
+  <h2 class="section-title reveal">Years That <em>Built Us</em></h2>
+  <p class="section-desc reveal" id="timelineDesc">From the first day of Class 6 to the last bell of Class 12 — seven years of becoming.</p>
+  <!-- Populated by gallery.js -->
+  <div class="timeline" id="timelineContent"></div>
+</section>
+
+<!-- ===== WISHES SECTION ===== -->
+<section class="wishes-section cinematic-reveal" id="wishes">
+  <div class="section-eyebrow reveal">Farewell Wall</div>
+  <h2 class="section-title reveal">Words from the <em>Heart</em></h2>
+  <p class="section-desc reveal">Leave your love, your laughter, your last goodbyes.</p>
+  <div class="wish-meta">
+    <p class="section-desc" id="wishCount" style="margin:0;font-size:0.85rem;"></p>
+    <div class="wish-btns">
+      <button id="showMoreBtn" onclick="showMoreWishes()" class="btn-ghost" style="display:none;">Show More</button>
+      <button id="showLessBtn" onclick="showLessWishes()" class="btn-ghost btn-ghost-dim" style="display:none;">Show Less</button>
+    </div>
+  </div>
+  <div class="wishes-grid stagger-children" id="wishesGrid"></div>
+
+  <div class="add-wish-wrap">
+    <div class="add-wish-form reveal">
+      <h3>Leave Your Mark</h3>
+      <p>Write a wish, a memory, or simply your name — so you are always part of this wall.</p>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Your Name" id="wishName"/>
+        <input class="form-input" type="text" placeholder="Section (A / B)" id="wishSec" style="max-width:160px;"/>
+        <input class="form-input" type="text" placeholder="Year (e.g. 2025-26)" id="wishYear" style="max-width:160px;"/>
+      </div>
+      <textarea class="form-textarea" placeholder="Write your memory or wish here..." id="wishText"></textarea>
+      <button class="btn-submit magnetic" onclick="addWish()">Pin to the Wall ✦</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">Shakuntalites</div>
+  <p class="footer-tagline" id="footerYear">Class of 2025–26 · Forever in each other's hearts</p>
+  <nav class="footer-nav">
+    <a href="#years">Gallery</a>
+    <a href="#memories">Memories</a>
+    <a href="#videos">Videos</a>
+    <a href="#wishes">Wishes</a>
+    <a href="#teachers">Teachers</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span class="sep">·</span>
+      <a href="terms.html">Terms of Use</a>
+      <span class="sep">·</span>
+      <a href="#" class="footer-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to Top ↑</a>
+    </div>
+    <p class="footer-copyright">
+      © 2025 Shakuntalites — शाकुन्तलम् विद्यालय, Banasthali Vidhyapeeth, Rajasthan – 304022. All rights reserved.
+    </p>
+    <div class="footer-bottom">
+      Made with ❤️ by <strong>Lukveer Singh</strong> &amp; <strong>Rohit Yadav</strong> &nbsp;·&nbsp; May your futures be as bright as your smiles
+    </div>
+  </div>
+</footer>
+
+<!-- ===== OVERLAYS ===== -->
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-ph" id="lightbox-img">📷</div>
+    <p class="lightbox-caption" id="lightbox-caption">A beautiful memory</p>
+  </div>
+</div>
+
+<!-- Event Album Overlay -->
+<div class="event-album-overlay" id="eventAlbumOverlay" role="dialog" aria-modal="true">
+  <div class="event-album-header">
+    <div class="event-album-title" id="eventAlbumTitle">Album</div>
+    <span class="event-album-photo-count" id="eventAlbumPhotoCount"></span>
+    <button class="event-album-close" onclick="closeEventAlbum()" aria-label="Close">✕</button>
+  </div>
+  <div class="event-album-body" id="eventAlbumBody">
+    <div class="event-album-grid" id="eventAlbumGrid"></div>
+  </div>
+</div>
+
+<!-- Fullscreen Event Photo Viewer -->
+<div id="evtViewer" role="dialog" aria-modal="true">
+  <button id="evtViewerClose" onclick="closeEvtViewer()" aria-label="Close">✕</button>
+  <button class="evt-nav-btn" id="evtNavPrev" onclick="evtViewerNav(-1)" aria-label="Previous">‹</button>
+  <img id="evtViewerImg" src="" alt="Event photo" loading="lazy"/>
+  <div id="evtViewerCounter"></div>
+  <button class="evt-nav-btn" id="evtNavNext" onclick="evtViewerNav(1)" aria-label="Next">›</button>
+</div>
+
+<!-- Memories Overlay -->
+<div class="memories-overlay" id="memoriesOverlay" role="dialog" aria-modal="true">
+  <div class="mem-header">
+    <div class="mem-header-left">
+      <div class="mem-eyebrow">Photo Album</div>
+      <div class="mem-title" id="memTitle">Memories · 2025–26</div>
+      <div class="mem-count" id="memCount">0 photos</div>
+    </div>
+    <div class="mem-header-right">
+      <button class="mem-close-btn" onclick="closeMemories()" aria-label="Close">✕</button>
+    </div>
+  </div>
+  <div class="mem-upload-bar" id="memUploadBar">
+    <button class="mem-upload-btn" onclick="document.getElementById('memFileInput').click()">＋ Add Photos</button>
+    <span class="mem-upload-hint">Select multiple photos at once</span>
+    <input type="file" id="memFileInput" accept="image/*" multiple style="display:none;" onchange="handleMemUpload(event)"/>
+  </div>
+  <div class="mem-body">
+    <div class="mem-grid" id="memGrid"></div>
+  </div>
+</div>
+
+<!-- Memory Viewer -->
+<div class="mem-viewer" id="memViewer" role="dialog" aria-modal="true">
+  <button class="mem-viewer-close" onclick="closeViewer()" aria-label="Close">✕</button>
+  <button class="mem-viewer-nav mem-viewer-prev" onclick="viewerNav(-1)" aria-label="Previous">‹</button>
+  <img class="mem-viewer-img" id="memViewerImg" src="" alt="Memory photo"/>
+  <button class="mem-viewer-nav mem-viewer-next" onclick="viewerNav(1)" aria-label="Next">›</button>
+  <div class="mem-viewer-counter" id="memViewerCounter"></div>
+</div>
+
+<!-- ===== SCRIPTS (deferred for performance) ===== -->
+<script src="gallery.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
